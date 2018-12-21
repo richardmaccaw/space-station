@@ -1,3 +1,15 @@
+.flex-container {
+  display: flex;
+  margin: 0px 0px 0px 20px;
+}
+
+.sidebar {
+  width: 20%;
+}
+
+.location {
+  margin: 30px 10px 0px 0px;
+}
 
 .big-circle {
   width: 100px;

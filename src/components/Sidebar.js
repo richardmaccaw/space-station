@@ -1,10 +1,10 @@
 import React from 'react'
+import Location from './Location'
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
-      <div className="sidebar">
-        <h1>Form goes here</h1>
-        <input placeholder='enter your location'></input>
+    <div className="sidebar">
+        <Location getUserLocation={props.getUserLocation}/>
       </div>
   )
 }

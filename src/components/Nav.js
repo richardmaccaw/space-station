@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 class Nav extends Component {
   render() {
     return (
-      <AppBar position="static" color="blue">
+      <AppBar position="static" color="inherit">
         <Toolbar>
           <Typography variant="h6" color="inherit">
             Track the International Space Station

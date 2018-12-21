@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import API from './API'
 import GoogleMapReact from 'google-map-react';
 import Satellite from './Satellite'
+import UserLocation from './UserLocation'
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
  
 const MAP_KEY = process.env.REACT_APP_MAPS_API;
 
@@ -64,20 +68,36 @@ class Map extends Component {
     clearInterval(this.interval)
   }
 
+  renderUserLocation() {
+    if (this.props.userLocation) {
+      return <UserLocation
+        lat={this.props.userLocation.lat}
+        lng={this.props.userLocation.lng}
+      />
+    } else return
+  }
+
   render() {
     return (
-      <div className='map' style={{ height: '100vh', width: '75%'}}>
+      <div className='map' style={{ height: '100vh', width: '100%'}}>
       {console.log(this.state.center)}
         <GoogleMapReact
-          bootstrapURLKeys={{ key: MAP_KEY }}
+          bootstrapURLKeys={{ key: MAP_KEY, v: '3.31' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           center={this.state.mapCenter}
+          getUserLocation={this.getUserLocation}
         >
           <Satellite 
             lat={this.state.center.lat}
             lng={this.state.center.lng}
           />
+          <AnyReactComponent
+            lat={51.5184}
+            lng={-0.0889}
+            text={'Kreyser Avrora'}
+          />
+          {this.renderUserLocation()}
         </GoogleMapReact>
         
       </div>
