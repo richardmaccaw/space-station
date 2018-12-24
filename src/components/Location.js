@@ -17,9 +17,10 @@ const Location = (props) => {
     const { classes } = props
     return (
         <div className="location">
-            <Typography variant="subtitle1">Calculate ISS fly by</Typography>
-            <Divider style={{marginBottom: 20}}/>
-            <Typography variant="body1" >The international space station (ISS) is a outpost in space launched in 1998. It can be seen easily from the earth. It orbits the earth 15.5 times a day at an altitude of around 250 miles high. Share your location to see when its next overhead! </Typography>
+            {/* <Typography variant="subtitle1">The international spacestation</Typography> */}
+            {/* <Divider style={{marginBottom: 20}}/> */}
+            {/* <Typography variant="body1" >The international space station (ISS) is a outpost in space launched in 1998. It can be seen easily from the earth.</Typography> */}
+            {<Typography variant='body1'> To plot your position, we need permission to access your browsers location. Click the button below and select 'allow' when prompted. This may take a few seconds.</Typography>}
             <Button onClick={props.getUserLocation}variant="outlined" color="primary" className={classes.button}>
                 Get my location
             </Button>
