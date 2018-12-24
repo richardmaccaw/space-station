@@ -35,7 +35,7 @@ class Map extends Component {
       lat: 33.7831,
       lng: 37.9712
     },
-    zoom: 3
+    zoom: 4
   };
 
   getSatelliteCoords = async () => {
@@ -82,7 +82,7 @@ class Map extends Component {
       <div className='map' style={{ height: '100vh', width: '100%'}}>
       {console.log(this.state.center)}
         <GoogleMapReact
-          bootstrapURLKeys={{ key: MAP_KEY, v: '3.31' }}
+          bootstrapURLKeys={{ key: MAP_KEY, v: 3.32 }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           center={this.state.mapCenter}
