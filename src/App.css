@@ -7,25 +7,19 @@
   width: 20%;
 }
 
+.map {
+}
+
 .location {
   margin: 30px 10px 0px 0px;
 }
 
-.big-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color:rgb(255, 0, 0, 0.3);
-  border: 2px red solid;
-  position: relative;
-}
-
 .small-circle {
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background-color: rgb(26, 8, 0, 0.9);
+  background-color: rgba(38, 0, 255, 1);
   top: 50%;
   left: 50%;
   margin: -2.5px 0px 0px -2.5px;
