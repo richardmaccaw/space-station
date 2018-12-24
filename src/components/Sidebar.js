@@ -1,11 +1,14 @@
 import React from 'react'
-import Location from './Location'
+import SidebarTabs from './SidebarTabs'
+
+
 
 const Sidebar = (props) => {
   return (
+
     <div className="sidebar">
-        <Location getUserLocation={props.getUserLocation}/>
-      </div>
+        <SidebarTabs getUserLocation={props.getUserLocation}/>
+    </div>
   )
 }
 
