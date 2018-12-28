@@ -11,9 +11,10 @@ class App extends Component {
   }
 
   getUserLocation = async () => {
-    console.log('click')
       if (navigator.geolocation) {
         await navigator.geolocation.getCurrentPosition(this.showPosition)
+      } else {
+        alert('sorry this feature is not supported on your browser.')
       }
   }
 
@@ -26,6 +27,8 @@ class App extends Component {
     })
   }
 
+  
+
   render() {
     return (
       <Fragment>
@@ -33,6 +36,7 @@ class App extends Component {
           <div className = "flex-container" >
             <Sidebar 
               getUserLocation={this.getUserLocation}
+              userLocation={this.state.userLocation}
             />
             <Map
               className="map"
