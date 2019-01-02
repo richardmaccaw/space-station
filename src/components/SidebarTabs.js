@@ -51,8 +51,8 @@ class SidebarTabs extends React.Component {
           indicatorColor="primary"
           textColor="primary"
         >
-          <Tab label="My location" />
-          <Tab label="Next ISS pass" />
+          <Tab label="The ISS" />
+          <Tab label="When is it overhead?" />
         </Tabs>
         {value === 0 && 
           <TabContainer>

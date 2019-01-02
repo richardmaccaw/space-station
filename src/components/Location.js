@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Typography } from '@material-ui/core';
+import { Typography, Divider } from '@material-ui/core';
 
 const styles = theme => ({
     button: {
@@ -16,7 +16,9 @@ const Location = (props) => {
     const { classes } = props
     return (
         <div className="location">
-            {<Typography variant='body1'> To plot your position, we need permission to access your browsers location. Click the button below and select 'allow' when prompted. This may take a few seconds.</Typography>}
+            <Typography variant="subtitle1">The International Space Station</Typography>
+            <Divider style={{ marginBottom: 20 }} />
+            <Typography variant="body1"> The ISS flies at an average altitude of 248 miles (400 kilometers) above Earth. It travels a massive 5 miles-per-second. That means the station circles the entire planet once every 90 minutes. You can see it best at night, when it looks like a fast moving bright light.</Typography>
             <Button 
                 onClick={props.getUserLocation}
                 variant="outlined"

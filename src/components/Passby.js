@@ -21,9 +21,6 @@ class Passby extends React.Component {
     
         return (
             <div>
-                <Typography variant="subtitle1">The international spacestation</Typography>
-                <Divider style={{marginBottom: 20}}/>
-                <Typography variant="body1"> The international space station (ISS) is a outpost in space launched in 1998. It can be seen easily from the earth. The ISS orbits the earth over 15 times a day.</Typography>
                 {this.props.passBy && this.props.passBy.map(pass => 
                     <Typography>
                         {(new Date(parseInt(pass.risetime*1000))).toLocaleString()}
