@@ -1,4 +1,5 @@
 import React from 'react'
+import API from './API'
 import EmailForm from './EmailForm'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -15,16 +16,25 @@ const styles = theme => ({
 class Passby extends React.Component {
 
   state = {
-
+    email: ''
   }
 
   renderPassBy = pass => (new Date(parseInt(pass.risetime * 1000)).toLocaleString())
 
-  handleChange = name => event => {
+  handleChange = event => {
     this.setState({
-      [name]: event.target.value,
-    });
-  };
+      email: event.target.value,
+    })
+  }
+
+  handleSubmit = () => {
+    const user = {
+      email_address: this.state.email,
+      passes: this.props.passBy
+    }
+    API.createUser(user)
+      .then(console.log)
+  }
 
 
   render () {
@@ -52,7 +62,10 @@ class Passby extends React.Component {
 
         <Typography> To get a reminder of when the ISS will be over your location, submit your email below</Typography>
 
-        <EmailForm></EmailForm>
+        <EmailForm 
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}>
+        </EmailForm>
         
       </div>
     )

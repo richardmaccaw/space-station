@@ -34,6 +34,7 @@ const EmailForm = (props) => {
         <div>
             <form className={classes.container} noValidate autoComplete="off">
                 <TextField
+                    onChange={props.handleChange}
                     id="outlined-email-input"
                     label="Email"
                     className={classes.textField}
@@ -43,9 +44,9 @@ const EmailForm = (props) => {
                     margin="normal"
                     variant="outlined"
                 />
-                <Button color="primary" className={classes.button}>
+                <Button onClick={props.handleSubmit} color="primary" className={classes.button}>
                     Submit
-                    </Button>
+                </Button>
             </form>
         </div>
     )
