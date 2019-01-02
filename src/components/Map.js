@@ -75,7 +75,6 @@ class Map extends Component {
   render() {
     return (
       <div className='map' style={{ height: '90vh', width: '100%'}}>
-      {console.log(this.state.center)}
         <GoogleMapReact
           bootstrapURLKeys={{ key: MAP_KEY, v: 3.32 }}
           defaultCenter={this.props.center}
@@ -83,7 +82,7 @@ class Map extends Component {
           center={this.state.mapCenter}
           getUserLocation={this.getUserLocation}
         >
-          <Satellite 
+          <Satellite
             lat={this.state.center.lat}
             lng={this.state.center.lng}
           />
