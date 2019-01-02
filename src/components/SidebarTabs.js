@@ -20,7 +20,7 @@ class SidebarTabs extends React.Component {
 
   state = {
    value: 0,
-   passBy: null
+   passBy: []
   }
 
   handleChange = (event, value) => {
@@ -30,6 +30,7 @@ class SidebarTabs extends React.Component {
   getPassBy = async () => {
     if (this.props.userLocation) {
       const resp = await API.getPassBy(this.props.userLocation.lat, this.props.userLocation.lng)
+      console.log(resp.response)
       this.setState({
         passBy: resp.response
       })
@@ -37,7 +38,6 @@ class SidebarTabs extends React.Component {
       console.log('get location first')
     }
   }
-
   
 
   render () {
@@ -54,14 +54,18 @@ class SidebarTabs extends React.Component {
           <Tab label="My location" />
           <Tab label="Next ISS pass" />
         </Tabs>
-        {value === 0 && <TabContainer> <Location getUserLocation={this.props.getUserLocation}/> </TabContainer>}
+        {value === 0 && 
+          <TabContainer>
+            <Location getUserLocation={this.props.getUserLocation}/>
+          </TabContainer>}
         {value === 1 && 
           <TabContainer> 
             <Passby
               getPassBy={this.getPassBy}
               passBy={this.state.passBy}
             />
-          </TabContainer>}
+          </TabContainer>
+        }
       </div>
     )
   }

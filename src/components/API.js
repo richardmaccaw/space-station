@@ -6,7 +6,7 @@ class API {
   }
 
   static getPassBy = (lat, lon) => {
-    return fetch(`http://localhost:3002/api/v1/adapters/${lat}/${lon}`)
+    return fetch(`http://localhost:3000/api/v1/adapters/${lat}/${lon}`)
       .then(resp => resp.json())
   }
 
