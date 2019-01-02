@@ -1,7 +1,6 @@
 import React from 'react'
 import Location from './Location'
 import Passby from './Passby'
-import API from './API'
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -20,29 +19,15 @@ class SidebarTabs extends React.Component {
 
   state = {
    value: 0,
-   passBy: []
   }
 
   handleChange = (event, value) => {
     this.setState({ value })
   }
 
-  getPassBy = async () => {
-    if (this.props.userLocation) {
-      const resp = await API.getPassBy(this.props.userLocation.lat, this.props.userLocation.lng)
-      console.log(resp.response)
-      this.setState({
-        passBy: resp.response
-      })
-    } else {
-      console.log('get location first')
-    }
-  }
-  
 
   render () {
-    const { value } = this.state;
-
+    const { value } = this.state
     return (
       <div>
         <Tabs 
@@ -52,7 +37,7 @@ class SidebarTabs extends React.Component {
           textColor="primary"
         >
           <Tab label="The ISS" />
-          <Tab label="When is it overhead?" />
+          <Tab label="Fly by" />
         </Tabs>
         {value === 0 && 
           <TabContainer>
@@ -61,8 +46,8 @@ class SidebarTabs extends React.Component {
         {value === 1 && 
           <TabContainer> 
             <Passby
-              getPassBy={this.getPassBy}
-              passBy={this.state.passBy}
+              getPassBy={this.props.getPassBy}
+              passBy={this.props.passBy}
             />
           </TabContainer>
         }

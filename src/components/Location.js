@@ -18,7 +18,7 @@ const Location = (props) => {
         <div className="location">
             <Typography variant="subtitle1">The International Space Station</Typography>
             <Divider style={{ marginBottom: 20 }} />
-            <Typography variant="body1"> The ISS flies at an average altitude of 248 miles (400 kilometers) above Earth. It travels a massive 5 miles-per-second. That means the station circles the entire planet once every 90 minutes. You can see it best at night, when it looks like a fast moving bright light.</Typography>
+            <Typography variant="body1"> The International Space Station is a large spacecraft. It orbits around Earth. It is a home where astronauts live. The space station is also a science lab. Many countries worked together to build it. They also work together to use it. The space station is made of many pieces. The pieces were put together in space by astronauts. The space station's orbit is approximately 250 miles above Earth. NASA uses the station to learn about living and working in space. These lessons will help NASA explore space.</Typography>
             <Button 
                 onClick={props.getUserLocation}
                 variant="outlined"

@@ -6,6 +6,8 @@ const Sidebar = (props) => {
 
     <div className="sidebar">
         <SidebarTabs
+          passBy={props.passBy}
+          getPassBy={props.getPassBy}
           getUserLocation={props.getUserLocation}
           userLocation={props.userLocation}
         />
