@@ -5,8 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Typography, Divider } from '@material-ui/core';
 
-
-
 const styles = theme => ({
   button: {
       marginTop: 10
@@ -28,14 +26,15 @@ class Passby extends React.Component {
   }
 
   handleSubmit = () => {
+    let passes = []
+    
+    this.props.passBy.forEach(pass => passes.push((this.renderPassBy(pass))))
     const user = {
       email_address: this.state.email,
-      passes: this.props.passBy
+      passes: passes.toString().replace(/, /g, " at ")
     }
     API.createUser(user)
-      .then(console.log)
   }
-
 
   render () {
     const { classes } = this.props

@@ -13,15 +13,18 @@ class App extends Component {
     passBy: []
   }
 
-  getUserLocation = async () => {
-      if (navigator.geolocation) {
-        await navigator.geolocation.getCurrentPosition(this.showPosition)
-      } else {
-        alert('sorry this feature is not supported on your browser.')
-      }
+  getUserLocation = () => {
+    if (navigator.geolocation) {
+      return new Promise ((resolve) => 
+        navigator.geolocation.getCurrentPosition((position) => 
+          resolve(this.showPosition(position))
+        )
+      )
+    } else {
+      alert('This feature is not supported on your browser. Try using the latest version of Chrome.')
+    }
   }
-
-  showPosition = async (position) => {
+  showPosition = (position) => {
     this.setState({
       userLocation: {
         lat: position.coords.latitude,
@@ -31,21 +34,23 @@ class App extends Component {
   }
 
   getPassBy = async () => {
-    // if (!this.state.userLocation) {
-    //   this.getUserLocation().then(() => {
-    //     const resp = API.getPassBy(this.state.userLocation.lat, this.state.userLocation.lng)
-    //     this.setState({
-    //       passBy: resp.response
-    //     })
-    //   })
-    // }
-    const resp = await API.getPassBy(this.state.userLocation.lat, this.state.userLocation.lng)
-    this.setState({
-      passBy: resp.response
-    })
+    if (!this.state.userLocation) {
+      this.getUserLocation().then(async () => {
+        const resp = await API.getPassBy(this.state.userLocation.lat, this.state.userLocation.lng)
+        this.setState({
+          passBy: resp.response
+        })
+      })
+    } else {
+      const resp = await API.getPassBy(this.state.userLocation.lat, this.state.userLocation.lng)
+      this.setState({
+        passBy: resp.response
+      })
+    }
   }
 
   render() {
+    window.getUserLocation = this.getUserLocation
     return (
       <Fragment>
           <Nav />
