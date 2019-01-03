@@ -50,10 +50,9 @@ class App extends Component {
   }
 
   render() {
-    window.getUserLocation = this.getUserLocation
     return (
       <Fragment>
-          <Nav />
+          {/* <Nav /> */}
           <div className = "flex-container" >
             <Sidebar 
               getUserLocation={this.getUserLocation}
