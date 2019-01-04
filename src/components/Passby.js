@@ -27,7 +27,6 @@ class Passby extends React.Component {
 
   handleSubmit = () => {
     let passes = []
-    
     this.props.passBy.forEach(pass => passes.push((this.renderPassBy(pass))))
     const user = {
       email_address: this.state.email,
@@ -42,11 +41,12 @@ class Passby extends React.Component {
     return (
       <div>
         <Typography>The ISS flies at an average altitude of 248 miles (400 kilometers) above Earth. It travels a massive 5 miles-per-second. That means the station circles the entire planet once every 90 minutes. You can see it best at night, when it looks like a fast moving bright light.</Typography>
-        {this.props.passBy && this.props.passBy.map(pass =>
-          <Typography>
-            {this.renderPassBy(pass)}
-          </Typography>)
-        }
+        <ul>
+          {this.props.passBy && this.props.passBy.map(pass =>
+            <li><Typography> {this.renderPassBy(pass)} </Typography></li>)
+          }
+        </ul>
+        
 
         <Button
           onClick={this.props.getPassBy}

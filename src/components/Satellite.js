@@ -1,9 +1,9 @@
 import React from 'react'
+import satellite from '../images/satellite.png'
 
 const Satellite = () => {
   return (
-      <div className='small-circle'>
-      </div>
+    <img src={satellite} height="100" width="100"></img>
   )
 }
 

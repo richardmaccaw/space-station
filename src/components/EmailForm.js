@@ -26,30 +26,33 @@ const styles = theme => ({
     },
 })
 
-const EmailForm = (props) => {
+class EmailForm extends React.Component {
+    
+    render () {
+        const { classes } = this.props
 
-    const { classes } = props
-
-    return (
-        <div>
-            <form className={classes.container} noValidate autoComplete="off">
-                <TextField
-                    onChange={props.handleChange}
-                    id="outlined-email-input"
-                    label="Email"
-                    className={classes.textField}
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    margin="normal"
-                    variant="outlined"
-                />
-                <Button onClick={props.handleSubmit} color="primary" className={classes.button}>
-                    Submit
-                </Button>
-            </form>
-        </div>
-    )
+        return (
+            <div>
+                <form className={classes.container} noValidate autoComplete="off">
+                    <TextField
+                        
+                        onChange={this.props.handleChange}
+                        id="outlined-email-input"
+                        label="Email"
+                        className={classes.textField}
+                        type="email"
+                        name="email"
+                        autoComplete="email"
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <Button onClick={this.props.handleSubmit} color="primary" className={classes.button}>
+                        Submit
+                    </Button>
+                </form>
+            </div>
+        )
+    }
 }
 
 export default withStyles(styles)(EmailForm)

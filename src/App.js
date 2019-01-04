@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import Map from './components/Map'
 import Sidebar from './components/Sidebar'
-import Nav from './components/Nav'
 import API from './components/API'
 
 
@@ -52,7 +51,6 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-          {/* <Nav /> */}
           <div className = "flex-container" >
             <Sidebar 
               getUserLocation={this.getUserLocation}
