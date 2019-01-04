@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { Typography } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
 
 const styles = theme => ({
     button: {
@@ -24,32 +27,59 @@ const styles = theme => ({
     menu: {
         width: 200,
     },
+    color: {
+        color: '#f50057',
+    }
 })
 
 class EmailForm extends React.Component {
     
+    state = {
+        submitted: false
+    }
+
+    submitForm = () => {
+        this.setState({
+            submitted: !this.state.submitted
+        })
+    }
+    
     render () {
-        const { classes } = this.props
 
         return (
             <div>
-                <form className={classes.container} noValidate autoComplete="off">
-                    <TextField
-                        
+                <ValidatorForm 
+                    ref='form'
+                    onSubmit={() => {
+                        this.props.handleSubmit()
+                        this.submitForm()
+                    }}
+                    onError={errors => console.log(errors)}
+                    className={this.props.classes.container} 
+                    autoComplete="off"
+                >
+                    <TextValidator
                         onChange={this.props.handleChange}
                         id="outlined-email-input"
                         label="Email"
-                        className={classes.textField}
+                        className={this.props.classes.textField}
                         type="email"
                         name="email"
-                        autoComplete="email"
                         margin="normal"
                         variant="outlined"
+                        // validators={['required', 'isEmail']}
+                        errorMessages={['this field is required', 'email is not valid']}
                     />
-                    <Button onClick={this.props.handleSubmit} color="primary" className={classes.button}>
-                        Submit
+                    <Button 
+                        type='submit' 
+                        color="primary" 
+                        className={this.props.classes.button}
+                        disabled={this.state.submitted}
+                        >
+                        {!this.state.submitted ? 'submit' : 'done!'}
                     </Button>
-                </form>
+                    {this.state.submitted && <Typography style={{color: '#00a152'}}>Your email is on the way!</Typography>}
+                </ValidatorForm>
             </div>
         )
     }

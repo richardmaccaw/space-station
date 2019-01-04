@@ -21,11 +21,12 @@ class Passby extends React.Component {
 
   handleChange = event => {
     this.setState({
-      email: event.target.value,
+      email: event.target.value
     })
   }
 
   handleSubmit = () => {
+    console.log('clicked')
     let passes = []
     this.props.passBy.forEach(pass => passes.push((this.renderPassBy(pass))))
     const user = {
