@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { Typography } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
 
 const styles = theme => ({
     button: {
@@ -45,7 +43,6 @@ class EmailForm extends React.Component {
     }
     
     render () {
-
         return (
             <div>
                 <ValidatorForm 
@@ -78,7 +75,10 @@ class EmailForm extends React.Component {
                         >
                         {!this.state.submitted ? 'submit' : 'done!'}
                     </Button>
-                    {this.state.submitted && <Typography style={{color: '#00a152'}}>Your email is on the way!</Typography>}
+                        {
+                            this.state.submitted && 
+                            <Typography style={{color: '#00a152'}}>Your email is on the way!</Typography>
+                        }
                 </ValidatorForm>
             </div>
         )
