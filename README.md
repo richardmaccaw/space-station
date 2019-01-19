@@ -6,13 +6,13 @@ Space Station lets you see the live location of the international space station 
 
 No signup required, just head on over to the app to get started! You can plot your own location on the map (chrome will ask you for permission) and get a list of the next times the international space station will be visible over your location. Then enter your email address to get a one off email with the pass over times.
 
-### Screenshot
+### Screenshot.
 ![](public/SpaceStation.png)
 
 
 ### Technologies / structure: 
 
-* Ruby on Rails backend [link to rails repository](https://github.com/richardmaccaw/space-station-api)
+* Ruby on Rails backend [(link to rails repository)](https://github.com/richardmaccaw/space-station-api)
 * Action Mailer
 * MVC framework
 * React front-end
