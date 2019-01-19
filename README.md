@@ -1,4 +1,4 @@
-# Space Station readme
+# Space Station
 
 Space Station lets you see the live location of the international space station (ISS) as it orbits over the earth. I first saw the ISS moving across the night sky a few months ago. I had no idea it moved so fast (orbits the earth 15 times a day) and was so visible. I thought it would be fun to make an app which showed where it was over the earth and gave you the next few times when it would be visible.
 
