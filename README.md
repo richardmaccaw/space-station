@@ -12,7 +12,7 @@ No signup required, just head on over to the app to get started! You can plot yo
 
 ### Technologies / structure: 
 
-* Ruby on Rails
+* Ruby on Rails backend [link to rails repository](https://github.com/richardmaccaw/space-station-api)
 * Action Mailer
 * MVC framework
 * React front-end
