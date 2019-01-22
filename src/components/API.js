@@ -1,7 +1,7 @@
 class API {
 
   static getSatelliteCoords = () => {
-    return fetch('http://api.open-notify.org/iss-now.json')
+    return fetch('//api.open-notify.org/iss-now.json')
         .then(resp => resp.json())
   }
 
