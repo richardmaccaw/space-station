@@ -9,12 +9,12 @@ class API {
   }
 
   static getPassBy = (lat, lon) => {
-    return fetch(`http://space-station-api.herokuapp.com/api/v1/adapters/${lat}/${lon}`)
+    return fetch(`https://space-station-api.herokuapp.com/api/v1/adapters/${lat}/${lon}`)
       .then(resp => resp.json())
   }
 
   static createUser = (user) => {
-    return fetch('http://spacestation-api.herokuapp.com/api/v1/users/', {
+    return fetch('https://spacestation-api.herokuapp.com/api/v1/users/', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)
