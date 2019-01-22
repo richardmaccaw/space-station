@@ -14,7 +14,7 @@ class API {
   }
 
   static createUser = (user) => {
-    return fetch('https://spacestation-api.herokuapp.com/api/v1/users/', {
+    return fetch('https://space-station-api.herokuapp.com/api/v1/users/', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)
