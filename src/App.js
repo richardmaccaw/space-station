@@ -13,21 +13,24 @@ class App extends Component {
   }
 
   getUserLocation = () => {
-    if (navigator.geolocation) {
-      return new Promise ((resolve) => 
-        navigator.geolocation.getCurrentPosition((position) => 
-          resolve(this.showPosition(position))
-        )
-      )
-    } else {
-      alert('This feature is not supported on your browser. Try using the latest version of Chrome.')
-    }
+    this.showPosition()
+    // getLocation is depreciated on http and the spacestation api only exists on http. So its one or the other! Hardcoding location.
+
+    // if (navigator.geolocation) {
+    //   return new Promise ((resolve) => 
+    //     navigator.geolocation.getCurrentPosition((position) => 
+    //       resolve(this.showPosition(position))
+    //     )
+    //   )
+    // } else {
+    //   alert('This feature is not supported on your browser. Try using the latest version of Chrome.')
+    // }
   }
   showPosition = (position) => {
     this.setState({
       userLocation: {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
+        lat: 51.5200652,
+        lng: -0.08773099999999999
       }
     })
   }
