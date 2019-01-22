@@ -1,8 +1,11 @@
 class API {
 
   static getSatelliteCoords = () => {
-    return fetch('http://api.open-notify.org/iss-now.json')
-        .then(resp => resp.json())
+    return fetch(`https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json`, {
+      headers: {
+        'X-Requested-With': 'true'
+      },
+    }).then(resp => resp.json())
   }
 
   static getPassBy = (lat, lon) => {
